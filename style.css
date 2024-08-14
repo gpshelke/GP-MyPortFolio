@@ -169,7 +169,22 @@ body {
   border-radius: 50px;
   transition: var(--transition-2);
 }
-
+.btns{
+  background-color: var(--orange-soda);
+  color: white;
+  /* font-size: var(--fs-5); */
+  border-radius: var(--radius-5);
+  transition: var(--transition-2);
+  /* padding: 10px; */
+  font-size: var(--fs-5);
+  width: 100%;
+}
+.btns:is(:hover, :focus) {
+  background-color: var(--white);
+  color: var(--black);
+  font-family: var(--ff-barlow);
+  cursor:pointer;
+}
 .btn-primary.blue { background-color: var(--klein-blue); }
 
 .btn-primary.blue:is(:hover, :focus) { background-color: var(--orange-soda); }
