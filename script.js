@@ -40,24 +40,24 @@ window.addEventListener("scroll", function () {
     backTopBtn.classList.remove("active");
   }
 });
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('contact-form').addEventListener('submit', function(event) {
-      event.preventDefault();
+// document.addEventListener('DOMContentLoaded', function() {
+//   document.getElementById('contact-form').addEventListener('submit', function(event) {
+//       event.preventDefault();
 
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const message = document.getElementById('message').value;
+//       const name = document.getElementById('name').value;
+//       const email = document.getElementById('email').value;
+//       const message = document.getElementById('message').value;
 
-      const emailContent = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
-      // const messages = document.getElementById('messgaes').value ; 
-      // Replace 'your-email@example.com' with your actual email address
-      const mailtoLink = `mailto:gopalshelke200@gmail.com?subject=Contact Form Submission&body=${encodeURIComponent(emailContent)}`;
+//       const emailContent = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+//       // const messages = document.getElementById('messgaes').value ; 
+//       // Replace 'your-email@example.com' with your actual email address
+//       const mailtoLink = `mailto:gopalshelke200@gmail.com?subject=Contact Form Submission&body=${encodeURIComponent(emailContent)}`;
 
-      window.location.href = mailtoLink;
+//       window.location.href = mailtoLink;
 
-      document.getElementById('status').innerText = 'Thank you for your message!';
-  });
-});
+//       document.getElementById('status').innerText = 'Thank you for your message!';
+//   });
+// });
 
 const submitButton = document.querySelector('.btn-submit');
 
