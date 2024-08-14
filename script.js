@@ -58,3 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('status').innerText = 'Thank you for your message!';
   });
 });
+
+const submitButton = document.querySelector('.btn-submit');
+
+submitButton.addEventListener('click', function(event) {
+  event.preventDefault();
+  document.querySelector('status').innerText = 'Thank you for your message!';
+});
+
