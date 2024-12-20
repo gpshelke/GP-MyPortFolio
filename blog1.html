@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Story</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Open+Sans:wght@400;500;700&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="styleblog.css">
+    <style>
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            margin-top: 50px;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .header1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header1 h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: #222;
+        }
+
+        .header1 p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .content {
+            font-size: 1.2rem;
+        }
+
+        .content p {
+            margin: 20px 0;
+        }
+
+        .content blockquote {
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f9f9f9;
+            border-left: 5px solid #0078d4;
+            font-style: italic;
+            color: #555;
+        }
+
+        .content img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border-radius: 8px;
+        }
+
+        .content ul {
+            margin: 20px;
+            padding-left: 40px;
+        }
+
+        .content ul li {
+            margin-bottom: 10px;
+        }
+
+
+        .interaction {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .interaction button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #0078d4;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .interaction button:hover {
+            background-color: #005a9e;
+        }
+
+        .comment-section {
+            margin-top: 20px;
+        }
+
+        .comment-section textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .comment-section button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .comment-section button:hover {
+            background-color: #218838;
+        }
+
+        .comments {
+            margin-top: 20px;
+        }
+
+        .comment {
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        body {
+           background-color:  hsl(243, 23%, 18%);
+  }
+
+
+
+/* Footer Styles */
+.footer {
+    background-color:  hsl(243, 23%, 18%);
+    color: #fff; /* White text color for readability */
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+   background-color:  hsl(243, 23%, 18%);
+    align-items: center;
+    gap: 10px;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer a img {
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.footer a img:hover {
+    transform: scale(1.2);
+}
+
+.footer .copyright {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.footer .copyright-link {
+    color: #4caf50; /* Highlighted color */
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-list li {
+    margin: 5px 0;
+}
+
+.footer-link {
+    color: #4caf50;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #ff5722; /* Hover effect color */
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .footer .container {
+        flex-direction: row;
+        background-color:  hsl(243, 23%, 18%);
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer a img {
+        margin: 0 15px;
+    }
+
+    .footer-list {
+        display: flex;
+        gap: 15px;
+    }
+}
+
+/* Header Styling */
+.header {
+    position: fixed; /* Fixes the header at the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Spans the entire width of the page */
+    /* background-color: #c20909;  */
+    background-color:  hsl(243, 23%, 18%);;
+    color: #f6ebeb; /* White text */
+    z-index: 1000; /* Ensures it stays on top */
+    height: 40px;
+    /* padding: 10px 20px; Adds some spacing inside */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow */
+}
+
+/* Container */
+.header .container {
+    display: flex;
+    height: 10px;
+    margin-top: 0px;
+    top: 0;
+    /* background-color: rgb(224, 25, 48); */
+    background-color:  hsl(240, 60%, 98%);;
+    justify-content: space-between; /* Space between logo and nav */
+    align-items: center; /* Centers content vertically */
+    background: lightblue;
+}
+
+/* Logo */
+ .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #0c0606;
+    text-decoration: none;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-list {
+    display: flex;
+    list-style: none;
+}
+
+.navbar-link {
+    color: #060202;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.navbar-link:hover {
+    color: #4caf50; /* Highlight on hover */
+}
+
+/* Button Styling */
+.nav-toggle-btn {
+    display: none; /* Hidden by default for larger screens */
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #0d0101;
+    font-size: 1.5rem;
+}
+
+/* Icons */
+.menu-icon,
+.close-icon {
+    font-size: 1.5rem;
+    color: #010000;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .nav-toggle-btn {
+        display: block; /* Show toggle button for smaller screens */
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%; /* Below the header */
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        transform: translateY(-100%); /* Hidden by default */
+        transition: transform 0.3s ease;
+    }
+   .container a {
+        text-decoration: none;
+    }
+
+    .navbar.active {
+        transform: translateY(0); /* Slide down when active */
+    }
+
+    .navbar-list {
+        flex-direction: column; /* Stack links vertically */
+        text-align: center;
+    }
+
+    .navbar-link {
+        margin: 10px 0; /* Add spacing between links */
+    }
+}
+
+/* Download Button */
+.btn-primary {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+  
+
+
+
+    </style>
+</head>
+
+<body>
+    
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#">
+        <h1 class="logo">Gopal Shelke</h1>
+      </a>
+
+      <button class="nav-toggle-btn" aria-label="Toggle Menu" data-nav-toggle-btn>
+        <ion-icon name="menu-outline" class="menu-icon"></ion-icon>
+        <ion-icon name="close-outline" class="close-icon"></ion-icon>
+      </button>
+
+      <nav class="navbar container">
+        <ul class="navbar-list">
+
+          <li>
+            <a href="index.html" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li>
+            <a href="index.html" class="navbar-link" data-nav-link>About</a>
+          </li>
+
+          <li>
+            <a href="index.html" class="navbar-link" data-nav-link>Portfolio</a>
+          </li>
+
+          <li>
+            <a href="index.html" class="navbar-link" data-nav-link>Skills</a>
+          </li>
+
+          <li>
+            <a href="index.html" class="navbar-link" data-nav-link>Contact</a>
+          </li>
+
+          <li>
+            <a href="blog1.html" class="navbar-link" data-nav-link>Blog</a>
+          </li>
+
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
+
+    <div class="container">
+        <div class="header1">
+            <h1>The Journey of Overcoming Personal Challenges</h1>
+            <p>Overcoming Personal problems and grow takes times </p>
+        </div>
+
+        <div class="content">
+            <p>Life is full of challenges that test our resilience, patience, and determination. I recently went through
+                a tough phase where everything seemed to be going wrong. My career, relationships, and personal health
+                were all at the center of struggles, and it felt like I was sinking. But through persistence and
+                understanding, I realized that these struggles were opportunities for growth.</p>
+
+            <blockquote>
+                "Challenges are not obstacles to avoid, but opportunities to embrace, for they are the stepping stones
+                that shape our growth and strength."
+            </blockquote>
+
+            <img src="/blog1.webp" alt="Placeholder image">
+
+            <p>Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh.
+                Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem.</p>
+
+            <ul>
+                <li>
+                    <h3>The Early Struggles: Facing Uncertainty</h3>
+                    <p>It all started when I moved from my hometown in Maharashtra to Pune for a new job. The transition
+                        from a small town to a big city was overwhelming. I felt disconnected, lonely, and unsure of
+                        whether I had made the right choice. On top of that, I had to adapt to a new work environment
+                        with a steep learning curve, which made things even more challenging. The pressure started to
+                        pile up, and I found myself losing sleep over work tasks that seemed to get harder with time</p>
+                </li>
+                <li>
+                    <h3>Building Strength Through Persistence</h3>
+                    I decided to start small—taking each day as an opportunity to improve. I focused on learning a bit
+                    more every day at work, even if it meant failing a few times along the way. I took time out for
+                    myself, meditated, exercised, and spent quality time with friends and family. Slowly but surely, I
+                    noticed a change. The work that once seemed overwhelming started to feel manageable, and I grew
+                    stronger in my personal life as well.
+                </li>
+                <li>
+                    <h3>The Rewards of Overcoming Adversity</h3>
+                    It wasn’t long before the results began to show. At work, my efforts were recognized, and I started
+                    receiving positive feedback from my colleagues and manager. On a personal level, I built stronger
+                    relationships and found peace in accepting myself as I was—flaws and all. Most importantly, I
+                    learned that no challenge is insurmountable when faced with a positive mindset.
+                </li>
+            </ul>
+            <h2>Conclusion:</h2>
+            <p>A Lesson in Resilience
+                Looking back, I’m grateful for the tough times I experienced. They taught me valuable lessons about
+                resilience, the importance of self-reflection, and the power of persistence. Today, I’m in a much better
+                place, both professionally and personally, and I know that whatever challenges lie ahead, I am prepared
+                to face them head-on.</p>
+        </div>
+
+        <div class="interaction">
+            <button onclick="likePost()">Like (<span id="likeCount">0</span>)</button>
+            <button onclick="toggleCommentSection()">Comment</button>
+        </div>
+
+        <div class="comment-section" id="commentSection" style="display: none;">
+            <textarea id="commentInput" placeholder="Write your comment here..."></textarea>
+            <button onclick="addComment()">Submit Comment</button>
+        </div>
+
+        <div class="comments" id="comments"></div>
+
+    </div>
+      <!-- 
+    - #FOOTER
+    
+  -->
+    <div class="container">
+        <footer class="footer">
+            <div class="container">
+                <a class="copyright" href="https://www.linkedin.com/in/gopal-shelke-727887192/" target="_blank"><img src="Li.png" alt="linkedin" width="100"></a>
+              <a class="copyright" href="https://www.instagram.com/the_gopal_shelke?utm_source=qr&igsh=MWl1ams0NG01czlmeQ==" target="_blank"><img src="inst.svg" alt="Instagram" width="40"></a>
+              <a class="copyright" href="https://www.facebook.com/share/v9HXk9pH8saztNr1/?mibextid=qi2Omg" target="_blank"><img src="fb.png" alt="Facebook" width="40"></a>
+              <p class="copyright">
+                &copy; 2024<a href="#" class="copyright-link">gopalshelke</a>. Rights Reseverd
+              </p>
+        
+              <ul class="footer-list">
+                <!-- <li>
+                  <a href="#" class="footer-link">Terms & Condition</a>
+                </li> -->
+        
+                <li>
+                  <a href="privacyPolicyPage.html" class="footer-link">Privacy Policy</a>
+                </li>
+              </ul>
+        
+            </div>
+          </footer>
+        
+    </div>
+
+
+    <script>
+        let likeCount = 0;
+
+        function likePost() {
+            likeCount++;
+            document.getElementById('likeCount').textContent = likeCount;
+        }
+
+        function toggleCommentSection() {
+            const commentSection = document.getElementById('commentSection');
+            commentSection.style.display = commentSection.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function addComment() {
+            const commentInput = document.getElementById('commentInput');
+            const commentText = commentInput.value.trim();
+
+            if (commentText) {
+                const commentsDiv = document.getElementById('comments');
+                const newComment = document.createElement('div');
+                newComment.classList.add('comment');
+                newComment.textContent = commentText;
+                commentsDiv.appendChild(newComment);
+                commentInput.value = '';
+            } else {
+                alert('Please enter a comment before submitting.');
+            }
+        }
+    </script>
+</body>
+
+</html>
