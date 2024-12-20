@@ -296,6 +296,11 @@
     color: #010000;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .nav-toggle-btn {
@@ -368,23 +373,23 @@
         <ul class="navbar-list">
 
           <li>
-            <a href="index.html" class="navbar-link" data-nav-link>Home</a>
+            <a href="index.html#home" class="navbar-link" data-nav-link>Home</a>
           </li>
 
           <li>
-            <a href="index.html" class="navbar-link" data-nav-link>About</a>
+            <a href="index.html#about" class="navbar-link" data-nav-link>About</a>
           </li>
 
           <li>
-            <a href="index.html" class="navbar-link" data-nav-link>Portfolio</a>
+            <a href="index.html#portfolio" class="navbar-link" data-nav-link>Portfolio</a>
           </li>
 
           <li>
-            <a href="index.html" class="navbar-link" data-nav-link>Skills</a>
+            <a href="index.html#skills" class="navbar-link" data-nav-link>Skills</a>
           </li>
 
           <li>
-            <a href="index.html" class="navbar-link" data-nav-link>Contact</a>
+            <a href="index.html#contact" class="navbar-link" data-nav-link>Contact</a>
           </li>
 
           <li>
@@ -461,7 +466,7 @@
 
         <div class="comment-section" id="commentSection" style="display: none;">
             <textarea id="commentInput" placeholder="Write your comment here..."></textarea>
-            <button onclick="addComment()">Submit Comment</button>
+            <button onclick="addComment(),viewComment()">Submit Comment</button>
         </div>
 
         <div class="comments" id="comments"></div>
@@ -510,7 +515,7 @@
             commentSection.style.display = commentSection.style.display === 'none' ? 'block' : 'none';
         }
 
-        function addComment() {
+        function viewComment() {
             const commentInput = document.getElementById('commentInput');
             const commentText = commentInput.value.trim();
 
@@ -526,6 +531,40 @@
             }
         }
     </script>
+      <script>
+        const formspreeURL = 'https://formspree.io/f/movqgokg'; // Replace with your Formspree endpoint
+
+function addComment() {
+  const comment = document.getElementById('commentInput').value;
+
+  if (!comment.trim()) {
+    alert('Please write a comment before submitting.');
+    return;
+  }
+
+  // Send the comment to Formspree
+  fetch(formspreeURL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ comment }),
+  })
+    .then((response) => {
+      if (response.ok) {
+        alert('Comment submitted successfully!');
+        document.getElementById('commentInput').value = ''; // Clear the input
+      } else {
+        alert('Failed to submit comment. Please try again later.');
+      }
+    })
+    .catch((error) => {
+      console.error('Error submitting comment:', error);
+      alert('An error occurred while submitting your comment.');
+    });
+}
+
+      </script>
 </body>
 
 </html>
