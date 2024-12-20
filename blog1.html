@@ -460,7 +460,7 @@ a {
         </div>
 
         <div class="interaction">
-            <button onclick="likePost()">Like (<span id="likeCount">0</span>)</button>
+            <button onclick="likePost() , addLike()">Like (<span id="likeCount">0</span>)</button>
             <button onclick="toggleCommentSection()">Comment</button>
         </div>
 
@@ -509,6 +509,16 @@ a {
             likeCount++;
             document.getElementById('likeCount').textContent = likeCount;
         }
+               const formspreeURLL = 'https://formspree.io/f/mqakrrel'   /// it is formspree url for like 
+        function addLike(){
+            
+            fetch(formspreeURLC, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ likeCount }),
+  })
 
         function toggleCommentSection() {
             const commentSection = document.getElementById('commentSection');
